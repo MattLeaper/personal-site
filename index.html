@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matt's Site</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+<div class="header">
+    <h1>Matt's Site</h1>
+    
+</div>
+<div class="togglebutton">
+    <button id="themeToggle">Switch to Light Mode ☀️</button>
+</div>
+
+  <div class="container">
+    <p>Hi, I'm Matt, an MSc Artificial Intelligence student at the University of Sheffield. This is my personal website.</p>
+    <p>Feel free to explore and learn more about me!</p>
+  </div>
+
+  <div class="projects">
+    <h2>My Projects</h2>
+    <ul>
+      <li>
+        <a href="https://mattleaper.github.io/Translation-Machine/" target="_blank">Translation Machine</a> – A tool for translating text between multiple languages. Note due to size restrictions the AI models are not included, however the tools to train the models are available.
+      </li>
+      <li>
+        <a href="https://mattleaper.github.io/Blake-Hotel-Site/" target="_blank">Blake Hotel Site</a> – A personal site for Blake Hotel.
+      </li>
+      <li>
+        <a href="https://github.com/MattLeaper" target="_blank">My GitHub</a> – Explore my repositories and contributions.
+      </li>
+      <li>
+        <a href="https://mattleaper.github.io/PubRankings/index.html" target="_blank">Pub Rankings</a> – A site for my personal rankings of pubs in Sheffield.
+      </li>
+    </ul>
+  </div>
+
+  <div class="contact">
+    <h2>Contact Me</h2>
+    <p>If you have any questions or just want to say hi, feel free to reach out!</p>
+    <ul>
+      <li>Instagram: <a href="https://www.instagram.com/leaper_matt/" target="_blank">@leaper_matt</a></li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/matthew-leaper-4b73582b7/" target="blank">MattLeaper</a></li>
+    </ul>
+  </div>
+</body>
+
+<script>
+const themeToggle = document.getElementById('themeToggle');
+
+function toggleTheme() {
+  // Add slide-out class
+  themeToggle.classList.add('slide-out-left');
+
+  // Wait for slide out to finish (300ms), then toggle theme and slide back in
+  setTimeout(() => {
+    document.body.classList.toggle('dark-theme');
+    const isLight = document.body.classList.contains('dark-theme');
+
+    themeToggle.textContent = isLight
+      ? 'Switch to Dark Mode 🌙'
+      : 'Switch to Light Mode ☀️';
+
+    // Remove slide-out, trigger slide-in animation by re-adding class
+    themeToggle.classList.remove('slide-out-left');
+    themeToggle.style.animation = 'none';  // reset animation
+    // Trigger reflow to restart animation
+    void themeToggle.offsetWidth;
+    themeToggle.style.animation = 'slideInFromLeft 0.3s ease forwards';
+  }, 300);
+}
+
+themeToggle.addEventListener('click', toggleTheme);
+</script>
+
+</html>

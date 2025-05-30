@@ -1,0 +1,155 @@
+:root {
+      --bg-color: rgb(90, 77, 77);
+      --text-color: white;
+      --header-bg: #e7e5e4;
+      --header-text: #131313;
+      --button-bg: #e7e5e4;
+      --button-text: #131313;
+      --button-border: #131313;
+      --link-color: #add8e6;
+    }
+
+    /* Light theme overrides */
+    .dark-theme {
+      --bg-color: #d3c2c2;
+      --text-color: #1a1a1a;
+      --header-bg: #ffffff;
+      --header-text: #000000;
+      --button-bg: #000000;
+      --button-text: #ffffff;
+      --button-border: #ffffff;
+      --link-color: #1a0dab;
+    }
+
+    /* Base styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .togglebutton button {
+    margin-top: 200px;  /* moves button down */
+    margin-bottom: 10px;
+    margin-left: 180px;
+    display: inline-block;
+    animation: slideInFromLeft 1s ease forwards;
+    text-align: left;
+    }
+
+
+
+
+    .togglebutton button {
+    margin-bottom: 10px; /* space between button and the words below */
+    display: inline-block;
+    text-align: left;
+    }
+
+    .container,
+    .projects,
+    .contact {
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      letter-spacing: 0.1em;
+    }
+
+    .header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 20px;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    a {
+      color: var(--link-color);
+    }
+
+    /* Button styles */
+    button#themeToggle {
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      border: 1px solid var(--button-border);
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button#themeToggle:hover {
+      background-color: var(--button-text);
+      color: var(--button-bg);
+      border-color: var(--button-text);
+    }
+
+    
+    @keyframes slideInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
+    .header h1 {
+    animation: slideInFromTop 1s ease forwards;
+    }
+
+    @keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* Slide out to left */
+.slide-out-left {
+  animation: slideOutLeft 0.3s forwards;
+}
+
+/* Slide in from left - reuse from before */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+/* Apply initial slide in */
+.togglebutton button {
+  animation: slideInFromLeft 1s ease forwards;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
