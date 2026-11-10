@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Matt's personal site: MSc Artificial Intelligence student at the University of Sheffield, with projects and contact links." />
+  <title>Matt's Site</title>
+  <script>
+    // Set the theme before the page paints, so there's no flash
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem('theme'); } catch (e) {}
+      if (!theme) {
+        theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <button id="themeToggle" type="button"></button>
+    </header>
+
+    <main>
+      <div class="intro">
+        <h1>Matt's Site</h1>
+        <p>Hi, I'm Matt, an MSc Artificial Intelligence student at the University of Sheffield. This is my personal website. Feel free to explore and learn more about me.</p>
+      </div>
+
+      <section aria-labelledby="projects-title">
+        <h2 id="projects-title">My projects</h2>
+        <ul class="projects">
+          <li>
+            <a href="https://mattleaper.github.io/Translation-Machine/" target="_blank" rel="noopener">Translation Machine</a>
+            <p>A tool for translating text between multiple languages. Due to size restrictions the AI models aren't included, but the tools to train them are available.</p>
+          </li>
+          <li>
+            <a href="https://mattleaper.github.io/PubRankings/index.html" target="_blank" rel="noopener">Pub Rankings</a>
+            <p>My personal rankings of pubs in Sheffield.</p>
+          </li>
+          <li>
+            <a href="https://mattleaper.github.io/Blake-Hotel-Site/" target="_blank" rel="noopener">Blake Hotel Site</a>
+            <p>A personal site for the Blake Hotel.</p>
+          </li>
+          <li>
+            <a href="https://github.com/MattLeaper" target="_blank" rel="noopener">My GitHub</a>
+            <p>Explore my repositories and contributions.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact me</h2>
+        <p>If you have any questions or just want to say hi, feel free to reach out.</p>
+        <ul class="contact-list">
+          <li>Instagram: <a href="https://www.instagram.com/leaper_matt/" target="_blank" rel="noopener">@leaper_matt</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/matthew-leaper-4b73582b7/" target="_blank" rel="noopener">MattLeaper</a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    var root = document.documentElement;
+    var toggle = document.getElementById('themeToggle');
+
+    function render() {
+      var isDark = root.getAttribute('data-theme') === 'dark';
+      toggle.textContent = isDark ? 'Switch to light mode ☀️' : 'Switch to dark mode 🌙';
+    }
+
+    toggle.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>

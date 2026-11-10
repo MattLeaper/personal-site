@@ -1,0 +1,113 @@
+:root {
+  --bg: #0f1620;
+  --surface: #16202d;
+  --text: #e9edf2;
+  --muted: #a3afbf;
+  --accent: #8ab4ff;
+  --line: #26334a;
+}
+
+:root[data-theme="light"] {
+  --bg: #eef1f5;
+  --surface: #ffffff;
+  --text: #17202b;
+  --muted: #556070;
+  --accent: #1d4ed8;
+  --line: #d3dae4;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.65;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 64px;
+}
+
+h1, h2 {
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 0;
+}
+
+#themeToggle {
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.3s;
+}
+#themeToggle:hover { border-color: var(--accent); }
+
+.intro { padding: 48px 0 40px; }
+
+.intro h1 {
+  font-size: clamp(2.4rem, 8vw, 3.8rem);
+  letter-spacing: 0.02em;
+  animation: rise 0.8s ease-out both;
+}
+
+.intro p {
+  max-width: 34em;
+  margin: 16px 0 0;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(-24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Sections */
+section { padding: 32px 0; border-top: 1px solid var(--line); }
+section h2 { font-size: 1.5rem; margin-bottom: 8px; }
+
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.projects, .contact-list { list-style: none; margin: 0; padding: 0; }
+
+.projects li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.projects li:last-child { border-bottom: 0; }
+.projects a {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.projects p { margin: 4px 0 0; color: var(--muted); }
+
+.contact p { color: var(--muted); margin: 0 0 12px; }
+.contact-list li { padding: 2px 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro h1 { animation: none; }
+  body, #themeToggle { transition: none; }
+}
